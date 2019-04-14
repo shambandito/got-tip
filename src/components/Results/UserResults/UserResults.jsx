@@ -15,14 +15,14 @@ const UserResults = ({ name, characters, answers }) => {
 
       <ul className={styles.characters}>
         {characters.map((character, index) => {
-          const characterDead = character.dies === 'yes';
+          const userSaysDead = character.dies === 'yes';
           const realAnswer = answers.characters[index].dies;
           let answerCorrect = character.dies === realAnswer || (!character.dies && !realAnswer);
 
           const characterClasses = classNames({
             [styles.character]: true,
-            [styles.alive]: !characterDead,
-            [styles.dead]: characterDead
+            [styles.alive]: !userSaysDead,
+            [styles.dead]: userSaysDead
           });
 
           const statusClasses = classNames({
@@ -33,7 +33,7 @@ const UserResults = ({ name, characters, answers }) => {
 
           let characterText = 'überlebt';
 
-          if (characterDead) {
+          if (userSaysDead) {
             characterText = 'stirbt';
           }
 
@@ -55,7 +55,7 @@ const UserResults = ({ name, characters, answers }) => {
                   <span className={styles.userAnswer}> {characterText}</span>
                 </Typography>
                 <Typography className={statusClasses} variant="overline">
-                  {character.name} {characterDead ? 'ist tot' : 'lebt'}
+                  {character.name} {realAnswer ? 'ist tot' : 'lebt'}
                 </Typography>
               </div>
 

@@ -2,9 +2,11 @@
   "name": "got-tip",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://shambandito.github.io/got-tip/",
   "dependencies": {
     "@material-ui/core": "^3.9.3",
     "classnames": "^2.2.6",
+    "gh-pages": "^2.0.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-router": "^5.0.0",
@@ -15,7 +17,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"

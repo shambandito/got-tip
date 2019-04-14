@@ -17,7 +17,7 @@ const UserResults = ({ name, characters, answers }) => {
         {characters.map((character, index) => {
           const characterDead = character.dies === 'yes';
           const realAnswer = answers.characters[index].dies;
-          let answerCorrect = character.dies === realAnswer || !realAnswer;
+          let answerCorrect = character.dies === realAnswer || (!character.dies && !realAnswer);
 
           const characterClasses = classNames({
             [styles.character]: true,

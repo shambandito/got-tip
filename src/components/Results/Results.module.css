@@ -8,42 +8,6 @@
   margin-bottom: 32px;
 }
 
-.characters {
-  list-style-type: none;
-}
-
-.character {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-
-  padding: 16px;
-  margin-bottom: 16px;
-}
-
-.left {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
-
-.characterName {
-  padding-right: 8px;
-}
-
-.userAnswer {
-  color: #2196f3;
-}
-
-.characterStatus.correct {
-  color: #4caf50;
-}
-
-.characterStatus.wrong {
-  color: #f44336;
-}
-
-
 .resultsContainer {
   display: flex;
   flex-direction: column;
@@ -53,14 +17,4 @@
   width: 100%;
   max-width: 300px;
   align-self: center;
-}
-
-.results {
-  margin-top: 32px;
-}
-
-.points {
-  display: flex;
-  align-items: center;
-  margin-top: 8px;
 }

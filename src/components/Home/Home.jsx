@@ -1,14 +1,16 @@
 import React from 'react';
 
-import './App.css';
+import styles from './Home.module.css';
 
-import Data from './data/Data.json';
-import { RadioGroup, Radio, Input, Button } from '@material-ui/core';
-import SubmitContainer from './components/SubmitContainer/SubmitContainer';
-import BonusContainer from './components/BonusContainer/BonusContainer';
-import CharacterContainer from './components/CharacterContainer/CharacterContainer';
+import Data from '../../data/Data.json';
+import firebase from '../../firebase';
 
-class App extends React.PureComponent {
+import SubmitContainer from '../SubmitContainer/SubmitContainer';
+import BonusContainer from '../BonusContainer/BonusContainer';
+import CharacterContainer from '../CharacterContainer/CharacterContainer';
+import { Button, Typography } from '@material-ui/core';
+
+class Home extends React.PureComponent {
 
   constructor(props) {
     super(props);
@@ -18,11 +20,18 @@ class App extends React.PureComponent {
       bonus: [...Data.bonus]
     };
 
+    this.handleResultsClick = this.handleResultsClick.bind(this);
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleRadioChange = this.handleRadioChange.bind(this);
     this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
     this.handleBonusChange = this.handleBonusChange.bind(this);
+  }
+
+  handleResultsClick() {
+    const { history } = this.props;
+
+    history.push('/results');
   }
 
   handleRadioChange(name, dies) {
@@ -90,14 +99,24 @@ class App extends React.PureComponent {
       characters: characters,
       bonus: bonus
     });
+
+    const itemsRef = firebase.database().ref('users');
+
+    const user = {
+      name: name,
+      characters: characters,
+      bonus: bonus
+    }
+
+    itemsRef.push(user);
   }
 
   render() {
     const { characters, bonus } = this.state;
 
     return (
-      <div className="App">
-        <h1>GoT Tipp</h1>
+      <div className={styles.home}>
+        <Button className={styles.resultsButton} onClick={this.handleResultsClick} variant="contained" size="large" color="primary">Ergebnisse</Button>
 
         <CharacterContainer 
           items={characters}
@@ -118,4 +137,4 @@ class App extends React.PureComponent {
   }
 }
 
-export default App;
+export default Home;

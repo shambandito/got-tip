@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
 import styles from './SubmitContainer.module.css';
-import { Input, Button } from '@material-ui/core';
+import { Input, Button, Typography, Paper } from '@material-ui/core';
 
 const SubmitContainer = ({ onSubmit }) => {
-  const [ name, setName ] = useState("");
+  const [name, setName] = useState("");
 
   function handleSubmit() {
     onSubmit(name);
@@ -12,26 +12,25 @@ const SubmitContainer = ({ onSubmit }) => {
 
   return (
     <div className={styles.container}>
-    <h2 className={styles.title}>Antworten einreichen</h2>
-    <div className={styles.block}>
-      <span className={styles.inputLabel}>Name</span>
-      <Input
-        className={styles.input}
-        placeholder="Name eingeben"
-        onChange={(event) => { setName(event.target.value) }}
-      />
-    </div>
-
-    <Button
-      className={styles.button}
-      variant="contained"
-      color={"primary"}
-      disabled={!name}
-      onClick={handleSubmit}
-    >
-      Einreichen
+      <Typography variant="h4" gutterBottom>Antworten einreichen</Typography>
+      <Paper className={styles.block} elevation={1}>
+        <Typography className={styles.inputLabel} variant="h6" gutterBottom>Dein Name</Typography>
+        <Input
+          className={styles.input}
+          placeholder="Name eingeben"
+          onChange={(event) => { setName(event.target.value) }}
+        />
+        <Button
+          className={styles.button}
+          variant="contained"
+          color="secondary"
+          disabled={!name}
+          onClick={handleSubmit}
+        >
+          Einreichen
     </Button>
-  </div>
+      </Paper>
+    </div>
   );
 };
 

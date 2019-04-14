@@ -1,5 +1,5 @@
 .container {
-  margin-top: 32px;
+  margin-top: 48px;
 }
 
 .title {
@@ -7,18 +7,20 @@
   margin-bottom: 16px;
 }
 
+.characters {
+  list-style-type: none;
+}
+
 .character {
   display: flex;
   flex-direction: column;
 
-  padding: 16px 0;
-  border-bottom: 1px solid #999;
+  padding: 16px 16px 8px;
+  margin-bottom: 16px;
 }
 
 .inputLabel {
   flex-grow: 1;
-  padding-bottom: 8px;
-  font-weight: 500;
 }
 
 .block {

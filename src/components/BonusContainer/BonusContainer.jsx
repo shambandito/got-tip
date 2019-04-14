@@ -1,17 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import styles from './BonusContainer.module.css';
-import { Input, Button, RadioGroup, FormControlLabel, Radio } from '@material-ui/core';
+import { Input, RadioGroup, FormControlLabel, Radio, Typography, Paper } from '@material-ui/core';
 
 const BonusContainer = ({ items, onChange }) => {
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>Bonusfragen</h2>
+      <Typography variant="h4" gutterBottom>Bonus Fragen</Typography>
       {items.map((bonusItem, index) => {
         return (
-          <div key={bonusItem.question} className={styles.block}>
-            <span className={styles.inputLabel}>{bonusItem.question} ({bonusItem.points} Extrapunkt{bonusItem.points > 1 && 'e'})</span>
+          <Paper key={bonusItem.question} className={styles.block} elevation={1}>
+            <Typography className={styles.inputLabel} variant="h6" gutterBottom>
+              {bonusItem.question} ({bonusItem.points} Extrapunkt{bonusItem.points > 1 && 'e'})
+            </Typography>
             {bonusItem.radio ? (
               <RadioGroup
                 className={styles.radioGroup}
@@ -32,8 +34,8 @@ const BonusContainer = ({ items, onChange }) => {
                   onChange={(event) => { onChange(index, event.target.value) }}
                 />
               )}
-          </div>
-        )
+          </Paper>
+        );
       })}
     </div>
   );

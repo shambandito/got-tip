@@ -8,6 +8,7 @@ import styles from './Results.module.css';
 import Answers from '../../data/Answers.json';
 import { Paper, Typography, Button, Tabs, Tab, FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 import classes from './Results.module.css';
+import UserResults from './UserResults/UserResults';
 
 class Results extends React.PureComponent {
 
@@ -86,63 +87,11 @@ class Results extends React.PureComponent {
             </FormControl>
 
             {!!selectedUser && (
-              <div className={styles.results}>
-                <Typography variant="h5" gutterBottom>{selectedUser.name} hat getippt, dass</Typography>
-
-                <ul className={styles.characters}>
-                  {selectedUser.characters.map((character, index) => {
-                    const characterDead = character.dies === 'yes';
-                    const realAnswer = Answers.characters[index].dies;
-                    let answerCorrect = character.dies === realAnswer || !realAnswer;
-
-                    const characterClasses = classNames({
-                      [styles.character]: true,
-                      [styles.alive]: !characterDead,
-                      [styles.dead]: characterDead
-                    });
-
-                    const statusClasses = classNames({
-                      [styles.characterStatus]: true,
-                      [styles.correct]: answerCorrect,
-                      [styles.wrong]: !answerCorrect
-                    });
-
-                    let characterText = 'überlebt';
-
-                    if (characterDead) {
-                      characterText = 'stirbt';
-                    }
-
-                    let points = '0'
-
-                    if (answerCorrect) {
-                      points = '+ 1';
-                    } else {
-                      points = '- 1'
-                    }
-
-                    return (
-                      <Paper key={character.name} component={'li'} className={characterClasses} elevation={1}>
-                        <div className={styles.left}>
-                          <Typography className={styles.characterName} variant="h6">
-                            {character.name}
-                            <span className={styles.userAnswer}> {characterText}</span>
-                          </Typography>
-                          <Typography className={statusClasses} variant="overline">
-                            {character.name} {characterDead ? 'ist tot' : 'lebt'}
-                          </Typography>
-                        </div>
-
-                        <div className={classes.points}>
-                          <Typography className={statusClasses} variant="button">
-                            {points}
-                          </Typography>
-                        </div>
-                      </Paper>
-                    );
-                  })}
-                </ul>
-              </div>
+              <UserResults
+                name={selectedUser.name}
+                characters={selectedUser.characters}
+                answers={Answers}
+              />
             )}
           </div>
         )}
@@ -155,8 +104,6 @@ class Results extends React.PureComponent {
       </div>
     );
   }
-
-
 };
 
-export default React.memo(Results);
+export default Results;

@@ -133,12 +133,6 @@
     ],
     "bonus": [
         {
-            "question": "Wird Podricks Geheimnis aufgeklärt?",
-            "points": 1,
-            "radio": true,
-            "answer": null
-        },
-        {
             "question": "Ist Bran der Nachtkönig?",
             "points": 2,
             "radio": true,

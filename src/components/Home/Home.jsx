@@ -8,7 +8,7 @@ import firebase from '../../firebase';
 import SubmitContainer from '../SubmitContainer/SubmitContainer';
 import BonusContainer from '../BonusContainer/BonusContainer';
 import CharacterContainer from '../CharacterContainer/CharacterContainer';
-import { Button, Typography } from '@material-ui/core';
+import { Button, Snackbar } from '@material-ui/core';
 
 class Home extends React.PureComponent {
 
@@ -17,7 +17,8 @@ class Home extends React.PureComponent {
 
     this.state = {
       characters: [...Data.characters],
-      bonus: [...Data.bonus]
+      bonus: [...Data.bonus],
+      showToast: false
     };
 
     this.handleResultsClick = this.handleResultsClick.bind(this);
@@ -26,6 +27,8 @@ class Home extends React.PureComponent {
     this.handleRadioChange = this.handleRadioChange.bind(this);
     this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
     this.handleBonusChange = this.handleBonusChange.bind(this);
+
+    this.handleToastClose = this.handleToastClose.bind(this);
   }
 
   handleResultsClick() {
@@ -108,29 +111,58 @@ class Home extends React.PureComponent {
       bonus: bonus
     }
 
-    itemsRef.push(user);
+    itemsRef.push(user, (error) => {
+      if(!error) {
+        this.setState({
+          showToast: true
+        });
+      }
+    });
+  }
+
+  handleToastClose() {
+    this.setState({
+      showToast: false
+    });
   }
 
   render() {
-    const { characters, bonus } = this.state;
+    const { characters, bonus, showToast } = this.state;
 
     return (
       <div className={styles.home}>
         <Button className={styles.resultsButton} onClick={this.handleResultsClick} variant="contained" size="large" color="primary">Ergebnisse</Button>
 
-        <CharacterContainer 
+        <CharacterContainer
           items={characters}
           onRadioChange={this.handleRadioChange}
           onCheckboxChange={this.handleCheckboxChange}
         />
 
-        <BonusContainer 
+        <BonusContainer
           items={bonus}
           onChange={this.handleBonusChange}
         />
 
         <SubmitContainer
           onSubmit={this.handleSubmit}
+        />
+
+        <Snackbar
+          anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'left',
+          }}
+          open={showToast}
+          variant="success"
+          autoHideDuration={5000}
+          onClose={this.handleToastClose}
+          message={<span className={styles.toastMessage}>Deine Ergebnisse wurden gespeichert.</span>}
+          action={[
+            <Button key="undo" color="secondary" size="small" onClick={this.handleToastClose}>
+              OK
+            </Button>
+          ]}
         />
       </div>
     );

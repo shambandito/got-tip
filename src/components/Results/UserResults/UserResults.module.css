@@ -5,6 +5,7 @@
 
 .characters {
   list-style-type: none;
+  margin-bottom: 32px;
 }
 
 .character {
@@ -55,4 +56,13 @@
 
 .totalPoints {
 
+}
+
+.bonusItems {
+  list-style-type: none;
+}
+
+.bonusItem {
+  padding: 16px;
+  margin-bottom: 16px;
 }

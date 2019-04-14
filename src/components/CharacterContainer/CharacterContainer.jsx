@@ -32,7 +32,7 @@ const CharacterContainer = ({ items, onRadioChange, onCheckboxChange }) => {
                       disabled={character.dies !== 'yes'}
                     />
                   }
-                  label="Kehrt als White-Walker zurück"
+                  label="Kehrt als White Walker zurück"
                 />
               </FormGroup>
             </Paper>

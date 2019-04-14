@@ -18,3 +18,9 @@
   max-width: 300px;
   align-self: center;
 }
+
+.loading {
+  position: fixed;
+  top: calc(50% - 20px);
+  left: calc(50% - 20px);
+}

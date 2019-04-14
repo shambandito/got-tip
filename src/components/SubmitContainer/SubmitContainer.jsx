@@ -5,9 +5,16 @@ import { Input, Button, Typography, Paper } from '@material-ui/core';
 
 const SubmitContainer = ({ onSubmit }) => {
   const [name, setName] = useState("");
+  const [ buttonDisabled, setButtonDisabled ] = useState(false);
 
   function handleSubmit() {
     onSubmit(name);
+
+    setButtonDisabled(true);
+
+    window.setTimeout(() => {
+      setButtonDisabled(false);
+    }, 3000);
   }
 
   return (
@@ -24,7 +31,7 @@ const SubmitContainer = ({ onSubmit }) => {
           className={styles.button}
           variant="contained"
           color="secondary"
-          disabled={!name}
+          disabled={buttonDisabled || !name}
           onClick={handleSubmit}
         >
           Einreichen

@@ -5,7 +5,7 @@ import styles from './UserResults.module.css';
 
 import { Paper, Typography } from '@material-ui/core';
 
-const UserResults = ({ name, characters, answers }) => {
+const UserResults = ({ name, characters, bonus, answers }) => {
 
   let correctAnswers = 0;
 
@@ -16,8 +16,9 @@ const UserResults = ({ name, characters, answers }) => {
       <ul className={styles.characters}>
         {characters.map((character, index) => {
           const userSaysDead = character.dies === 'yes';
+          const userSaysWhiteWalker = character.whiteWalker;
           const realAnswer = answers.characters[index].dies;
-          let answerCorrect = character.dies === realAnswer || (!character.dies && !realAnswer);
+          let answerCorrect = character.dies === realAnswer || (!userSaysDead && !realAnswer);
 
           const characterClasses = classNames({
             [styles.character]: true,
@@ -53,9 +54,16 @@ const UserResults = ({ name, characters, answers }) => {
                 <Typography className={styles.characterName} variant="h6">
                   {character.name}
                   <span className={styles.userAnswer}> {characterText}</span>
+                  {userSaysWhiteWalker && (
+                    <>
+                    <span> und als</span>
+                    <span className={styles.userAnswer}> White Walker</span>
+                    <span> zurückkehrt</span>
+                    </>
+                  )}
                 </Typography>
                 <Typography className={statusClasses} variant="overline">
-                  {character.name} {realAnswer ? 'ist tot' : 'lebt'}
+                  {realAnswer ? 'Tot' : '(Bisher) am leben'}
                 </Typography>
               </div>
 
@@ -68,6 +76,23 @@ const UserResults = ({ name, characters, answers }) => {
           );
         })}
       </ul>
+{/* 
+      <Typography variant="h5" gutterBottom>Bonus Fragen</Typography>
+
+      <ul className={styles.bonusItems}>
+        {bonus.map(bonusItem => {
+          return (
+            <Paper key={bonusItem.question} component={'li'} className={styles.bonusItem} elevation={1}>
+              <div className={styles.left}>
+                <Typography className={styles.characterName} variant="h6">
+                  {bonusItem.question}
+                </Typography>
+              </div>
+            </Paper>
+          );
+        })}
+      </ul> */}
+
       <div className={styles.totalWrap}>
         <Typography className={styles.totalPoints} variant="h5">{correctAnswers} Punkte</Typography>
       </div>

@@ -1,5 +1,5 @@
 {
-  "main.css": "/got-tip/static/css/main.66f85dd3.chunk.css",
+  "main.css": "/got-tip/static/css/main.34b70a86.chunk.css",
   "main.js": "/got-tip/static/js/main.2498a2b3.chunk.js",
   "main.js.map": "/got-tip/static/js/main.2498a2b3.chunk.js.map",
   "runtime~main.js": "/got-tip/static/js/runtime~main.f0bde61a.js",
@@ -7,7 +7,7 @@
   "static/js/2.89cadd5c.chunk.js": "/got-tip/static/js/2.89cadd5c.chunk.js",
   "static/js/2.89cadd5c.chunk.js.map": "/got-tip/static/js/2.89cadd5c.chunk.js.map",
   "index.html": "/got-tip/index.html",
-  "precache-manifest.f990bb83e2202c42ce732d0ab0c4d826.js": "/got-tip/precache-manifest.f990bb83e2202c42ce732d0ab0c4d826.js",
+  "precache-manifest.80481ac935b2bf161c9cf9e249f908f0.js": "/got-tip/precache-manifest.80481ac935b2bf161c9cf9e249f908f0.js",
   "service-worker.js": "/got-tip/service-worker.js",
-  "static/css/main.66f85dd3.chunk.css.map": "/got-tip/static/css/main.66f85dd3.chunk.css.map"
+  "static/css/main.34b70a86.chunk.css.map": "/got-tip/static/css/main.34b70a86.chunk.css.map"
 }

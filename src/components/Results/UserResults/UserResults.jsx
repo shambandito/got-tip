@@ -50,26 +50,28 @@ const UserResults = ({ name, characters, bonus, answers }) => {
           return (
             <Paper key={character.name} component={'li'} className={characterClasses} elevation={1}>
               <img className={styles.characterImage} src={answers.characters[index].image} alt={character.name} />
-              <div className={styles.left}>
-                <Typography className={styles.characterName} variant="h6">
-                  {character.name}
-                  <span className={styles.userAnswer}> {characterText}</span>
-                  {userSaysWhiteWalker && (
-                    <>
-                      <span> und wird</span>
-                      <span className={styles.userAnswer}> White Walker</span>
-                    </>
-                  )}
-                </Typography>
-                <Typography className={statusClasses} variant="overline">
-                  {realAnswer ? 'Tot' : '(Bisher) am leben'}
-                </Typography>
-              </div>
+              <div className={styles.characterContent}>
+                <div className={styles.left}>
+                  <Typography className={styles.characterName} variant="h6">
+                    {character.name}
+                    <span className={styles.userAnswer}> {characterText}</span>
+                    {userSaysWhiteWalker && (
+                      <>
+                        <span> und wird</span>
+                        <span className={styles.userAnswer}> White Walker</span>
+                      </>
+                    )}
+                  </Typography>
+                  <Typography className={statusClasses} variant="overline">
+                    {realAnswer ? 'Tot' : '(Bisher) am leben'}
+                  </Typography>
+                </div>
 
-              <div className={styles.points}>
-                <Typography className={statusClasses} variant="button">
-                  {points}
-                </Typography>
+                <div className={styles.points}>
+                  <Typography className={statusClasses} variant="button">
+                    {points}
+                  </Typography>
+                </div>
               </div>
             </Paper>
           );

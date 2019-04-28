@@ -45,7 +45,7 @@ class Home extends React.PureComponent {
         return {
           ...character,
           dies: dies,
-          whiteWalker: dies === 'yes' ? false : character.whiteWalker
+          whiteWalker: false
         }
       }
 

@@ -17,6 +17,13 @@
   margin-bottom: 16px;
 }
 
+.characterImage {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 16px;
+}
+
 .left {
   display: flex;
   flex-direction: column;

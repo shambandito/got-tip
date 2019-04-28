@@ -1,0 +1,26 @@
+.users {
+  list-style-type: none;
+  margin-bottom: 32px;
+}
+
+.user {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.position {
+ 
+}
+
+.name {
+  padding: 0 8px;
+  flex-grow: 1;
+}
+
+.points {
+  color: #00bcd4;
+}

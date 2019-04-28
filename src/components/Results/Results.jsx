@@ -8,6 +8,7 @@ import Answers from '../../data/Answers.json';
 import { Button, Tabs, Tab, FormControl, InputLabel, Select, MenuItem, CircularProgress } from '@material-ui/core';
 import classes from './Results.module.css';
 import UserResults from './UserResults/UserResults';
+import Ranking from './Ranking/Ranking';
 
 class Results extends React.PureComponent {
 
@@ -20,7 +21,7 @@ class Results extends React.PureComponent {
 
   componentDidMount() {
     const users = firebase.database().ref('users');
-    
+
     users.on('value', (snapshot) => {
       let items = snapshot.val();
       let newUsers = [];
@@ -100,9 +101,10 @@ class Results extends React.PureComponent {
         )}
 
         {selectedTab === 1 && (
-          <div className={styles.rankings}>
-            Kommt noch
-          </div>
+          <Ranking 
+            users={users}
+            answers={Answers}
+          />
         )}
       </div>
     );

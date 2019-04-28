@@ -6,12 +6,11 @@ import styles from './UserResults.module.css';
 import { Paper, Typography } from '@material-ui/core';
 
 const UserResults = ({ name, characters, bonus, answers }) => {
-
   let correctAnswers = 0;
 
   return (
     <div className={styles.results}>
-      <Typography variant="h5" gutterBottom><span className={styles.userName}>{name}</span> hat getippt, dass</Typography>
+      <Typography variant="h5" gutterBottom>Tipps von <span className={styles.userName}>{name}</span></Typography>
 
       <ul className={styles.characters}>
         {characters.map((character, index) => {
@@ -50,15 +49,15 @@ const UserResults = ({ name, characters, bonus, answers }) => {
 
           return (
             <Paper key={character.name} component={'li'} className={characterClasses} elevation={1}>
+              <img className={styles.characterImage} src={answers.characters[index].image} alt={character.name} />
               <div className={styles.left}>
                 <Typography className={styles.characterName} variant="h6">
                   {character.name}
                   <span className={styles.userAnswer}> {characterText}</span>
                   {userSaysWhiteWalker && (
                     <>
-                    <span> und als</span>
-                    <span className={styles.userAnswer}> White Walker</span>
-                    <span> zurückkehrt</span>
+                      <span> und wird</span>
+                      <span className={styles.userAnswer}> White Walker</span>
                     </>
                   )}
                 </Typography>
@@ -76,7 +75,7 @@ const UserResults = ({ name, characters, bonus, answers }) => {
           );
         })}
       </ul>
-{/* 
+
       <Typography variant="h5" gutterBottom>Bonus Fragen</Typography>
 
       <ul className={styles.bonusItems}>
@@ -85,13 +84,22 @@ const UserResults = ({ name, characters, bonus, answers }) => {
             <Paper key={bonusItem.question} component={'li'} className={styles.bonusItem} elevation={1}>
               <div className={styles.left}>
                 <Typography className={styles.characterName} variant="h6">
-                  {bonusItem.question}
+                  {bonusItem.question} ({bonusItem.points} Extrapunkt{bonusItem.points > 1 && 'e'})
                 </Typography>
+                {bonusItem.radio ? (
+                  <Typography variant="h6">
+                    <span className={styles.userAnswer}>{bonusItem.answer === 'yes' ? 'Ja' : 'Nein'}</span>
+                  </Typography>
+                ) : (
+                    <Typography className={styles.characterName} variant="h6">
+                      <span className={styles.userAnswer}>{bonusItem.answer}</span>
+                    </Typography>
+                  )}
               </div>
             </Paper>
           );
         })}
-      </ul> */}
+      </ul>
 
       <div className={styles.totalWrap}>
         <Typography className={styles.totalPoints} variant="h5">{correctAnswers} Punkte</Typography>

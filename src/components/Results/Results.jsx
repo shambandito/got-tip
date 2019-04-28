@@ -9,6 +9,7 @@ import { Button, Tabs, Tab, FormControl, InputLabel, Select, MenuItem, CircularP
 import classes from './Results.module.css';
 import UserResults from './UserResults/UserResults';
 import Ranking from './Ranking/Ranking';
+import Statistics from './Statistics/Statistics';
 
 class Results extends React.PureComponent {
 
@@ -67,6 +68,7 @@ class Results extends React.PureComponent {
         <Tabs className={styles.tabs} value={selectedTab} onChange={this.handleTabSwitch} variant="fullWidth">
           <Tab label="Tipp Ergebnisse" />
           <Tab label="Rangliste" />
+          <Tab label="Statistiken" />
         </Tabs>
 
         {selectedTab === 0 && (
@@ -102,6 +104,13 @@ class Results extends React.PureComponent {
 
         {selectedTab === 1 && (
           <Ranking 
+            users={users}
+            answers={Answers}
+          />
+        )}
+
+        {selectedTab === 2 && (
+          <Statistics 
             users={users}
             answers={Answers}
           />

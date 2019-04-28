@@ -1,0 +1,45 @@
+.characters {
+  list-style-type: none;
+  margin-bottom: 32px;
+}
+
+.character {
+  display: flex;
+  align-items: center;
+
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.characterImage {
+  width: 60px;
+  height: 60px;
+  min-width: 60px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  margin-right: 16px;
+  align-self: flex-start;
+}
+
+.characterContent {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  flex-grow: 1;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.deadPercent {
+  font-size: 32px;
+  margin-right: 8px;
+  color: #ff9800;
+}
+
+.characterName {
+  color: #00bcd4;
+}

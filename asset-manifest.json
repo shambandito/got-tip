@@ -1,13 +1,13 @@
 {
   "main.css": "/got-tip/static/css/main.285be745.chunk.css",
-  "main.js": "/got-tip/static/js/main.ad0f855d.chunk.js",
-  "main.js.map": "/got-tip/static/js/main.ad0f855d.chunk.js.map",
+  "main.js": "/got-tip/static/js/main.48d43baf.chunk.js",
+  "main.js.map": "/got-tip/static/js/main.48d43baf.chunk.js.map",
   "runtime~main.js": "/got-tip/static/js/runtime~main.f0bde61a.js",
   "runtime~main.js.map": "/got-tip/static/js/runtime~main.f0bde61a.js.map",
-  "static/js/2.51c050d0.chunk.js": "/got-tip/static/js/2.51c050d0.chunk.js",
-  "static/js/2.51c050d0.chunk.js.map": "/got-tip/static/js/2.51c050d0.chunk.js.map",
+  "static/js/2.9ddb9146.chunk.js": "/got-tip/static/js/2.9ddb9146.chunk.js",
+  "static/js/2.9ddb9146.chunk.js.map": "/got-tip/static/js/2.9ddb9146.chunk.js.map",
   "index.html": "/got-tip/index.html",
-  "precache-manifest.749e4e7ca6ced01b496ddcf75101cb63.js": "/got-tip/precache-manifest.749e4e7ca6ced01b496ddcf75101cb63.js",
+  "precache-manifest.edecebacba5c047040457fdc34377783.js": "/got-tip/precache-manifest.edecebacba5c047040457fdc34377783.js",
   "service-worker.js": "/got-tip/service-worker.js",
   "static/css/main.285be745.chunk.css.map": "/got-tip/static/css/main.285be745.chunk.css.map"
 }

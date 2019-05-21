@@ -12,15 +12,56 @@
   margin-bottom: 16px;
 }
 
+.user > img {
+  width: 48px;
+  height: auto;
+  margin: 0 8px;
+}
+
+.user:first-child {
+  background:#fff;
+  animation: colorRotate 2s;
+  -moz-animation: colorRotate 2s infinite; /* Firefox */
+  -webkit-animation: colorRotate 2s infinite; /* Safari and Chrome */
+}
+
 .position {
- 
+  width: 30px;
 }
 
 .name {
   padding: 0 8px;
+}
+
+.winner {
   flex-grow: 1;
+  text-align: right;
+  margin-right: 16px;
+}
+
+.winner > img {
+  width: 30px;
+  margin-right: 8px;
 }
 
 .points {
   color: #00bcd4;
+}
+
+@keyframes colorRotate {
+  0% {background:#fff;}
+  50% {background:#ffeb3b;}
+  100% {background:#fff;}
+}
+
+@-moz-keyframes colorRotate {
+  0% {background:#fff;}
+  50% {background:#ffeb3b;}
+  100% {background:#fff;}
+}
+
+@-webkit-keyframes colorRotate {
+  0% {background:#fff;}
+  50% {background:#ffeb3b;}
+  100% {background:#fff;}
 }

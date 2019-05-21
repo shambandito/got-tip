@@ -6,7 +6,9 @@ import styles from './UserResults.module.css';
 import { Paper, Typography } from '@material-ui/core';
 
 const UserResults = ({ name, characters, bonus, answers }) => {
-  let correctAnswers = 0;
+  let correctAnswers = bonus.reduce((result, question) => {
+    return question.correct ? result + question.points : result;
+  }, 0);
 
   return (
     <div className={styles.results}>
@@ -17,7 +19,7 @@ const UserResults = ({ name, characters, bonus, answers }) => {
           const userSaysDead = character.dies === 'yes';
           const userSaysWhiteWalker = character.whiteWalker;
           const realAnswer = answers.characters[index].dies;
-          let answerCorrect = character.dies === realAnswer || (!userSaysDead && !realAnswer);
+          let answerCorrect = character.dies === realAnswer;
 
           const characterClasses = classNames({
             [styles.character]: true,
@@ -63,7 +65,7 @@ const UserResults = ({ name, characters, bonus, answers }) => {
                     )}
                   </Typography>
                   <Typography className={statusClasses} variant="overline">
-                    {realAnswer ? 'Tot' : '(Bisher) am leben'}
+                    {realAnswer === 'yes' ? 'Tot' : 'Überlebt'}
                   </Typography>
                 </div>
 
@@ -82,6 +84,11 @@ const UserResults = ({ name, characters, bonus, answers }) => {
 
       <ul className={styles.bonusItems}>
         {bonus.map(bonusItem => {
+          const statusClasses = classNames({
+            [styles.characterStatus]: true,
+            [styles.correct]: bonusItem.correct
+          });
+
           return (
             <Paper key={bonusItem.question} component={'li'} className={styles.bonusItem} elevation={1}>
               <div className={styles.left}>
@@ -98,6 +105,12 @@ const UserResults = ({ name, characters, bonus, answers }) => {
                     </Typography>
                   )}
               </div>
+
+              <div className={styles.points}>
+                  <Typography className={statusClasses} variant="button">
+                    {bonusItem.correct ? `+ ${bonusItem.points}` : '0'}
+                  </Typography>
+                </div>
             </Paper>
           );
         })}

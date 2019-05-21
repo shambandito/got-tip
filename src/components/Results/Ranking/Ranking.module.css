@@ -15,7 +15,7 @@
 .user > img {
   width: 48px;
   height: auto;
-  margin: 0 8px;
+  margin-left: 8px;
 }
 
 .user:first-child {
@@ -31,17 +31,7 @@
 
 .name {
   padding: 0 8px;
-}
-
-.winner {
   flex-grow: 1;
-  text-align: right;
-  margin-right: 16px;
-}
-
-.winner > img {
-  width: 30px;
-  margin-right: 8px;
 }
 
 .points {

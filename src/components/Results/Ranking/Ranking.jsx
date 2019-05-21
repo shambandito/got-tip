@@ -64,15 +64,6 @@ const Ranking = ({ users, answers }) => {
                 {user.name}
               </Typography>
 
-              <div className={styles.winner}>
-                {index === 0 && (
-                  <>
-                    <img src={'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/146/party-popper_1f389.png'} alt={''} />
-                    <img src={'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/146/party-popper_1f389.png'} alt={''} />
-                    <img src={'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/146/party-popper_1f389.png'} alt={''} />
-                  </>
-                )}
-              </div>
               <Typography variant="button">
                 <span className={styles.points}>{user.points} Punkt{user.points !== 1 && 'e'}</span>
               </Typography>

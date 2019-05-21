@@ -63,7 +63,7 @@ class Results extends React.PureComponent {
     return (
       <div className={styles.container}>
         {loading && <CircularProgress className={classes.loading} />}
-        <Button className={styles.backButton} onClick={() => { history.push("/"); }} variant="contained" size="large" color="primary">Zurück</Button>
+        {/* <Button className={styles.backButton} onClick={() => { history.push("/"); }} variant="contained" size="large" color="primary">Zurück</Button> */}
 
         <Tabs className={styles.tabs} value={selectedTab} onChange={this.handleTabSwitch} variant="fullWidth">
           <Tab label="Tipp Ergebnisse" />

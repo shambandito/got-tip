@@ -12,7 +12,7 @@ class AppRouter extends React.PureComponent {
     return (
       <Router>
         <Switch>
-          <Route path="/" exact component={Home} />
+          <Route path="/" exact component={Results} />
           <Route path="/results" component={Results} />
           <Redirect path="/" />
         </Switch>
